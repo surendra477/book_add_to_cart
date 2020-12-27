@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="./style.css">
+   <!-- <script src="script.js"></script> -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Book Depot</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" type='none'>
+              <li class="nav-item">
+                <a class="nav-link hov" aria-current="page" href="./index.html">HOME</a>
+              </li>
+            
+              <li class="nav-item">
+                <a class="nav-link hov" href="./products.html">PRODUCTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hov" href="./contactus.html">CONTACT US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link hov" href="./aboutus.html">ABOUT US</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link hov" href="./login.html">LOGIN</a>
+              </li> -->
+            
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+<span class="navbar-text">
+    <a class="nav-link hov" href="./cart.html">CART(<span class="spns_cart">0</span>)</a>
+</span>
+            <span class="navbar-text">
+        <a class="nav-link hov" href="./login.html">LOGIN</a>
+      </span>
+          </div>
+        </div>
+      </nav>
+      <div class="sp">
+       <input type="text" id="myInput" onkeyup="SearchFun()" placeholder="Search by Book name"
+            title="Type in a name">
+        <span id="item"></span>
+        </div>
+
+         <ul id="myUL" type='none'>
+
+            <!-- 1ST Row -->
+            <div class="row rows" id="uts-row">
+
+                <div class="col-md-3 margin_card card-container">
+
+                    <li id="lis"><a href="#" class="cards" style="padding: 0;">
+                            <div class="card cards" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted imgd" src="./cart_img/harper.jpg" alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">HARPER LEE</h5>
+                                       <h3 class="card-text"> Rs <span class="item-price">500</span></h3>
+                                </div>
+
+                                <!-- <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" /> -->
+                                
+                                <!-- <div class="card-body">
+
+                                    
+
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy item-button click_add"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+
+                </div>
+                  <!-- <div class="col-md-3 card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted"
+                                    src="data:image/jpeg;base64,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"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">The Great Gatsby</h5>
+                                  
+                                    <h3 class="card-text"> Rs<span class="item-price">1000</span></h3>
+                                    
+                                  
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                   
+
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy  item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div> -->
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img/bhagavad.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">Bhagavad Gita</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">200</span></h3>
+                                </div>
+<!-- 
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="cart_img/chosen.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">CHOSEN MAIDEN</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">900</span></h3>
+                                </div>
+<!-- 
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img/kite.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">The Kite Runner</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">800</span></h3>
+                                </div>
+<!-- 
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img/rings.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">THE LORD OF THE RINGS</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">600</span></h3>
+                                </div>
+
+                                <!-- <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img/room.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">THE GIRL IN THE ROOM</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">500</span></h3>
+                                </div>
+
+                                <!-- <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img//chanakya.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">Chanakya Niti</h5>
+                             
+                                      <h3 class="card-text"> Rs <span class="item-price">280</span></h3>
+                                </div>
+
+                                <!-- <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 margin_card card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image imgd inverted"
+                                    src="./cart_img/srimad.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">Srimad Bhagavatam</h5>
+                             
+                                      <h3 class="card-text">Rs <span class="item-price">260</span></h3>
+                                </div>
+<!-- 
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div> -->
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy click_add item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <!-- <div class="col-md-3 card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted" src="https://images-eu.ssl-images-amazon.com/images/I/51kqsxvbL1L._SX342_SY445_QL70_ML2_.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">The Wealth of Nations</h5>
+                             
+                                      <h3 class="card-text"> Rs<span class="item-price">2000</span></h3>
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy  item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+
+                <div class="col-md-3 card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted" src="https://images-eu.ssl-images-amazon.com/images/I/51kqsxvbL1L._SX342_SY445_QL70_ML2_.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">The Wealth of Nations</h5>
+                             
+                                      <h3 class="card-text"> Rs<span class="item-price">2000</span></h3>
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy  item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+            </div>
+             <div class="row rows" id="uts-row">
+
+                <div class="col-md-3 card-container">
+
+                    <li id="lis"><a href="#" class="cards" style="padding: 0;">
+                            <div class="card cards" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted" src="" alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">mahabaratam</h5>
+                                       <h3 class="card-text"> Rs<span class="item-price">500</span></h3>
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                
+                                <div class="card-body">
+
+                                    
+
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+
+                </div>
+                  <div class="col-md-3 card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted"
+                                    src=""
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">ramayana</h5>
+                                  
+                                    <h3 class="card-text"> Rs<span class="item-price">1000</span></h3>
+                                    
+                                  
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                   
+
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy  item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li>
+                </div>
+
+                <div class="col-md-3 card-container">
+                    <li id="lis"><a href="#" style="padding: 0;">
+                            <div class="card" style="width: 18rem; border-radius: 0;">
+                                <img class="card-img-top item-image inverted" src="https://images-eu.ssl-images-amazon.com/images/I/51kqsxvbL1L._SX342_SY445_QL70_ML2_.jpg"
+                                    alt="Card image cap">
+                                <hr style="width:100%; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+                                    <h5 class="card-title item-title ">indian</h5>
+                             
+                                      <h3 class="card-text"> Rs<span class="item-price">2000</span></h3>
+                                </div>
+
+                                <hr style="width:16rem; margin: auto;background-color: #1B4843; height:1px;" />
+                                <div class="card-body">
+
+                                  
+                                </div>
+                                <div class="item-details">
+                                    <button class="cd-add-to-cart js-cd-add-to-cart btnBuy  item-button"
+                                        type="button">Add to cart</button>
+                                </div>
+
+                            </div>
+                        </a></li> -->
+                <!-- </div> -->
+
+            </div>
+          </ul>
+          <script src="./script.js"></script>
+</body>
+</html>
